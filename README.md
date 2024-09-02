@@ -3,4 +3,4 @@ Many files are excluded from here. Code is earlier and less refined and less adv
 The code uses two servers, one interfaces with the user and another interfaces with the application pages.  
 Production powered by: hot dogs, energy drinks and 120 hour work weeks clocked on a timer.  
 
-All code copyright belongs to Elias Puolakka © 2024.
+All code copyright belongs to Elias Puolakka © 2023-2024.
