@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Page</title>
+    <!-- Include jQuery -->
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
+
+    <style>
+     body {
+            height: 100%;
+            overflow-x: hidden;
+            margin: 0; /* Remove default margin */
+            margin-left: 10px;
+            padding: 0; /* Remove default padding */
+        }
+
+        /* Toggle Switch Style */
+        .toggle-switch {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            z-index: 1000; /* Set a higher z-index to make sure it's above other elements */
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            z-index: 10;
+            width: 48px;
+            height: 29px;
+            background-color: #ccc;
+            border-radius: 15px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .switch::before {
+            content: '';
+            position: absolute;
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            background-color: white;
+            left: 2px;
+            transition: transform 0.3s;
+            margin-top: 4px;
+            margin-left: 2px;
+        }
+
+        .checkbox:checked + .switch::before {
+            transform: translateX(20px);
+        }
+
+        .checkbox:checked + .switch {
+            background-color: rgb(218, 162, 255);
+        }
+
+        .checkbox {
+            position: absolute;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toggle Switch -->
+    <div style="position: fixed; bottom:4px;" class="toggle-switch">
+        <input type="checkbox" id="languageToggle" class="checkbox">
+        <label class="switch" for="languageToggle"></label>
+    </div>  
+    <div style="position: fixed; margin-left: -10px; width: 100%; bottom: 0%; height: 39px; background-color: #cccccc5b;"></div>  
+    <p  style="position: fixed;margin-left: -10px;z-index: 11; width: 100%; bottom: -25px; height: 39px;">EN</p>
+    <p  style="position: fixed; z-index: 11; width: 100%; left: 69px; bottom: -25px; height: 39px;">FIN</p>
+
+    <!-- Content to be Translated -->
+    <h1 class="translate" data-translation-id="welcomeText">Welcome to Info page</h1>
+
+    <!-- Other Sections with Translation Classes -->
+
+    <section style="position: relative; margin-bottom: 390px;" id="about">
+        <h2  class="translate" data-translation-id="aboutSectionTitle">About Section</h2>
+        <p  class="translate" data-translation-id="aboutSectionText">Hi rebel!.. <br><br>Welcome to our Student Housing Collective for Aalto students! We aim to simplify the housing application process by allowing students to apply collectively to Hoas and AYY student housing. Not only that, but you only fill in minimal simplified details and the platforms handles everything for you. In the old appplication way if millions of people fill the applications and multiple pages over the years the slow complex inneficient and duplicated lenghty effort steals so much time it literally kills people! <br><br>Our platform streamlines the application experience, providing a hassle-free way for students to secure comfortable accommodation. Your time belongs to you not boring lenghty filings! Now go enjoy your life! Join us in creating a seamless housing journey for your student future!</p>
+    </section>
+
+    <section style="position: relative; margin-bottom: 390px;" id="contact">
+        <h2 class="translate" data-translation-id="contactSectionTitle">Contact Section</h2>
+        <p class="translate" data-translation-id="contactSectionText">Have questions or need assistance? Feel free to reach out to our team! <br><br>  
+
+            Email: <a href="mailto:[REDACTED]@aalto.fi">[REDACTED]@aalto.fi</a></p>
+    </section>
+
+    <section style="position: relative; margin-bottom: 390px;" id="faq">
+        <h2 class="translate" data-translation-id="faqSectionTitle">FAQ Section</h2>
+        <p class="translate" data-translation-id="faqSectionText">Q: How does the collective application work? <br><br>
+            A: Our platform enables students to apply simultaneously to Hoas and Ayy student housing. Everything is simplified you don't need to click endless boxes you check your area fill minimal details and apply! We intend to be the all in one place for student housing with Lumo student housing added next. <br>Simply fill out the collective application form, and a robot will fill both the hoas and ayy applications for you! Please note the tool is 100% automated and if you filled something incorrectly the tool will not be able to tell and the application process can just crash for your specific request, current user data is immediately permanently deleted regardless of application success and the tool just starts processing the next user.
+            <br><br>
+            <img style="margin-left: 81px;" src="{{ url_for('static', filename='example.png') }}" width="321" alt="img">
+            <br><br>
+            Q: How is my personal information handled?<br><br>
+            A: We prioritize your privacy. We do not store any user data. Your information is used exclusively for the housing application process. The page doesn't even have cookies, (unlike the Hoas and AYY forms.)
+            <br><br>
+            <br><br>
+            
+        </p>    
+    </section>
+
+    <section style="position: relative; margin-bottom: 390px;" id="terms">
+        <h2 class="translate" data-translation-id="termsSectionTitle">Terms Section</h2>
+        <p class="translate" data-translation-id="termsSectionText">Software and services are hereby provided as is without warranty. Tool copyright belongs to [REDACTED] et al. <br><br> Welcome! By using our services, you agree to the following terms:<br>
+            <b>Application Process: </b>The collective application process includes applying to both Hoas and AYY student housing simultaneously. <br>
+            <b>Privacy: </b>We prioritize your privacy and handle personal information only for the application process. The website automatically fills your applications and all user info is permanently deleted after processing.'
+    </section>
+
+    <section style="position: relative; margin-bottom: 320px;" id="privacy">
+        <h2 class="translate" data-translation-id="privacySectionTitle">Privacy Section</h2>
+        <p class="translate" data-translation-id="privacySectionText">At the Student Housing Collective, we want you to feel secure. Here's how we handle your information: <br><br>
+
+            <b>Data collection: </b>There is no data collection! You provide the information for the application only. We do not store any data. <br><br>
+            
+            <b>Data Security: </b>We employ industry-standard security measures to ensure the confidentiality of your information during transmission and processing. <br><br>
+            
+            <b>Data Retention: </b>We do not store any user data. Your information is used solely for the housing application and is not retained in any form. <br><br>
+            
+            For further inquiries or concerns, please contact us at [REDACTED]@aalto.fi.</p>
+    </section>
+    <script>
+         // Translation Dictionary
+    const translations = {
+        welcomeText: {
+            fi: 'Tervetuloa Info sivulle',
+            en: 'Welcome to Info page'
+        },
+        aboutSectionTitle: {
+            fi: 'Tietoja osio',
+            en: 'About Section'
+        },
+        aboutSectionText: {
+            fi: '<br><br>Tervetuloa opiskelija-asuntojen hakemukseemme Aallon opiskelijoille! Tavoitteenamme on mullistaa asuntohakuprosessi mahdollistamalla opiskelijoille yhteishaku Hoasin ja AYY opiskelija-asuntoihin mahdollisimman yksinkertaisella ja lyhyellä hakemuksella. Täytätät pelkästään minimi vaaditut tiedot ja ohjelmisto hoitaa kaiken puolestasi. Vanhassa hakutavassa, jos miljoonat ihmiset täyttävät hakemuksia vuosien varrella, hidas, monimutkainen, tehoton hakuprosessi varastaa niin paljon ihmisten aikaa, että se on melkein kuolettava! <br><br>Alustamme virtaviivaistaa hakukokemusta tarjoten opiskelijoille vaivattoman tavan mukavaan majoitukseen. Aikasi kuuluu sinulle, ei tylsille pitkille hakemuksille! Nyt mene nauttimaan elämästäsi! Liity joukkoomme luomaan saumatonta opiskelija-asuntohakemusta!',
+            en: '<br><br>Welcome to our Student Housing application for Aalto students! We aim to reinvent the housing application process by allowing students to apply at the same time to both Hoas and AYY student housing with shortest most simple possible form. You only fill in minimal rerquired details and the platform handles everything for you. In the old application way if millions of people fill the applications and multiple pages over the years, the slow, complex, inefficient, and duplicated lengthy effort steals so much time it literally kills people! <br><br>Our platform streamlines the application experience, providing a hassle-free way for students to secure comfortable accommodation. Your time belongs to you not boring lengthy filings! Now go enjoy your life! Join us in creating a seamless housing journey for your student future!'
+        },
+        contactSectionTitle: {
+            fi: 'Yhteystiedot osio',
+            en: 'Contact Section'
+        },
+        contactSectionText: {
+            fi: 'Onko sinulla kysyttävää tai tarvitsetko apua? Ota rohkeasti yhteyttä tiimiimme! <br><br>Sähköposti: <a href="mailto:[REDACTED]@aalto.fi">[REDACTED]@aalto.fi</a>',
+            en: 'Have questions or need assistance? Feel free to reach out to our team! <br><br>Email: <a href="mailto:[REDACTED]@aalto.fi">[REDACTED]@aalto.fi</a>'
+        },
+        faqSectionTitle: {
+            fi: 'Usein kysytyt kysymykset',
+            en: 'FAQ Section'
+        },
+        faqSectionText: {
+            fi: 'K: Miten yhteishakemus toimii? <br><br>V: Alustamme mahdollistaa opiskelijoille samanaikaisen hakemisen Hoasin ja ayy:n opiskelija-asuntoihin. Kaikki on yksinkertaistettu, sinun ei tarvitse klikata loputtomia ruutuja, tarkistaa aluetta, täytät vain vähimmäistiedot ja haet! Tarkoituksemme on olla kaikki yhdessä paikassa opiskelija-asuntoja varten. <br>Täytä vain yhteishakemuslomake, ja robotti täyttää sekä hoasin että ayy:n hakemukset sinulle. Huomioi, että työkalu on täysin automattinen. Jos täytät jotain väärin, työkalu ei pysty ilmoittamaan siitä ja hakuprosessi kaatuu kohdallasi. Käyttäjän kaikki tiedot poistetaan heti pysyvästi riippumatta hakemuksen onnistumisesta, ja työkalu siirtyy seuraavaan käytäjään.<br><br><img style="margin-left: 81px;" src="{{ url_for("static", filename="example.png") }}" width="321" alt="img"> <br><br>K: Miten henkilökohtaisia tietojani käsitellään? <br><br>V: Pidämme yksityisyytesi etusijalla. Emme tallenna käyttäjätietoja. Tietojasi käytetään yksinomaan asuntohakemukseen. Sivulla ei ole edes evästeitä (toisin kuin Hoas- ja ayy-lomakkeet.)',
+            en: 'Q: How does the collective application work? <br><br>A: Our platform enables students to apply simultaneously to Hoas and ayy student housing. Everything is simplified you don\'t need to click endless boxes you check your area fill minimal details and apply! We intend to be the all in one place for student housing <br>Simply fill out the collective application form, and a robot will fill both the hoas and ayy applications for you! Please note the tool is 100% automated if you filled something incorrectly the tool will not be able to tell and the application process can just crash for your specific request, current user data is immediately permanently deleted regardless of application success and the tool just starts processing the next user. <br><br><img style="margin-left: 81px;" src="{{ url_for("static", filename="example.png") }}" width="321" alt="img"> <br><br>Q: How is my personal information handled? <br><br>A: We prioritize your privacy. We do not store any user data. Your information is used exclusively for the housing application process. The page doesn\'t even have cookies, (unlike the Hoas and ayy forms.)'
+        },
+        termsSectionTitle: {
+            fi: 'Ehdot osio',
+            en: 'Terms Section'
+        },
+        termsSectionText: {
+            fi: 'Ohjelmisto ja palvelut toimitetaan tässä ilman takuuta. Työkalun tekijänoikeudet kuuluvat [REDACTED] ym. <br><br>Tervetuloa opiskelija-asuntojen yhteisöön! Käyttämällä palveluitamme hyväksyt seuraavat ehdot:<br><b>Hakuprosessi:</b> Yhteishakuprosessi sisältää samanaikaisen hakemuksen tekemisen sekä Hoasille että AYY:n opiskelija-asuntoihin. Hakiessa hyväksyt automaattisesti molempien palveluntarjoajien käyttöehdot. <br><b>Yksityisyys:</b> Kunnioitamme yksityisyyttäsi. Sivusto käyttää automaattisesti henkilötietoja vain hakuprosesiin ja poistaa lopullisesti kaiken heti käsittelyn jälkeen.',
+            en: 'Software and services are hereby provided as is without warranty. Tool copyright belongs to [REDACTED] et al. <br><br>Welcome to the Student Housing Collective! By using our services, you agree to the following terms:<br><b>Application Process:</b> The collective application process includes applying to both hoas and ayy student housing simultaneously. By applying you automaticaly accept the respective terms of service of both service providers. <br><b>Privacy:</b> We prioritize your privacy. The website automatically fills your applications and all user info is permanently deleted after processing.'
+        },
+        privacySectionTitle: {
+            fi: 'Tietosuoja osio',
+            en: 'Privacy Section'
+        },
+        privacySectionText: {
+            fi: 'Me hakuprosesin rakentajat haluamme sinun tuntevan olosi turvalliseksi. Näin käsittelemme tietojasi: <br><br><b>Tietojen keruu:</b> Tietojen keruuta ei ole! Annat tiedot vain hakemusta varten. Emme tallenna mitään tietoja. <br><b>Tietoturva:</b> Käytämme standardejen mukaisia turvatoimenpiteitä varmistaaksemme tietojesi luottamuksellisuuden siirron käsittelyn aikana. <br><b>Tietojen säilytys:</b> Emme tallenna mitään käyttäjätietoja. Tietojasi käytetään vain asuntohakemukseen eikä niitä säilytetä millään tavalla. <br><br>Lisätietoja tai kysymyksiä varten ota yhteyttä osoitteeseen [REDACTED]@aalto.fi.',
+            en: 'We the creators of the housing application want you to feel secure. Here\'s how we handle your information: <br><br><b>Data collection:</b> There is no data collection! You provide the information for the application only. We do not store any data. <br><b>Data Security:</b> We employ industry-standard security measures to ensure the confidentiality of your information during transmission and processing. <br><b>Data Retention:</b> We do not store any user data. Your information is used solely for the housing application and is not retained in any form. <br><br>For further inquiries or concerns, please contact us at [REDACTED]@aalto.fi.'
+        }
+        // Add more translations for other sections as needed
+    };
+// Function to toggle language
+$('#languageToggle').change(function() {
+        const isFinnish = $(this).prop('checked');
+
+        // Translate content using the translation dictionary
+        $('.translate').each(function() {
+            const translationId = $(this).data('translation-id');
+            const translatedText = translations[translationId][isFinnish ? 'fi' : 'en'];
+
+            // Replace special characters with HTML markup for line breaks
+            const htmlFormattedText = translatedText.replace(/\n/g, '<br>');
+
+            $(this).html(htmlFormattedText);
+        });
+    });
+    </script>
+    <script>
+         var language="{{ language }}"
+         //alert(language);
+         if(language == 'fi'){
+            document.getElementById("languageToggle").click(); //If cutmer wants auto lang change on info page but can manual looks btr in engls
+         }
+    </script>
+    
+    <!--
+    <a href="#about">Go to About Section</a>
+    <a href="#contact">Go to Contact Section</a>
+    <a href="#faq">Go to FAQ Section</a>
+    <a href="#terms">Go to Terms Section</a>
+    <a href="#privacy">Go to Privacy Section</a>
+    -->
+
+    <a href="#about">Go to About Section</a>
+    <a href="#contact">Go to Contact Section</a>
+    <a href="#faq">Go to FAQ Section</a>
+    <a href="#terms">Go to Terms Section</a>
+    <a href="#privacy">Go to Privacy Section</a>
+    
+    <!-- Link to go back to the home page -->
+    <a href="{{ url_for('index') }}">Go back to Home Page</a>
+    
+</body>
+<div style="position: relative; margin-left:-10px;margin-right:20px; width: 105%; height:39px; bottom: 0%; background-color: #adadad; margin-top: 5px;"></div>
+</html>

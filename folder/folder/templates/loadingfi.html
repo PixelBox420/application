@@ -1,0 +1,258 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body{
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                background: linear-gradient(45deg, #3498db, #27ae60);
+                color: #362f2e;
+            } 
+
+            @keyframes loadingAnimation {
+                0%, 100% {
+                    content: "Ladataan";
+                }
+                25% {
+                    content: "Ladataan.";
+                }
+                50% {
+                    content: "Ladataan..";
+                }
+                75% {
+                    content: "Ladataan...";
+                }
+            }
+
+            .loading-container {
+                width: 100%;
+                height: 20px;
+                background-color: darkgreen;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                overflow: hidden;
+            }
+
+            .loading-bar {
+                width: 0;
+                height: 100%;
+                background-color: rgb(36, 192, 30);
+            }
+
+            .loading-text::before {
+                content: "Loading";
+                color: white;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 5px;
+                display: block;
+                animation: loadingAnimation 2s infinite;
+            }
+            .loading-text {
+                color: white;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 5px;
+            }
+
+            .loading-container::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 50%;
+                background-color: rgba(0, 0, 0, 0);
+                border-radius: 10px 10px 0 0;
+            }
+
+            .loading-sdh-container {
+                width: 100%;
+                height: 10px;
+                background-color: rgb(10, 46, 10);
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                overflow: hidden;
+            }
+
+            .loading-sdh-bar {
+                width: 0;
+                height: 100%;
+                background-color: rgb(17, 134, 17);
+
+            }
+
+            .loading-sdh-text {
+                color: white;
+                text-align: center;
+                font-size: 16px;
+                padding: 5px;
+            }
+
+            .loading-sdh-container::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0);
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+            .loading-mid-container {
+                width: 100%;
+                height: 10px;
+                background-color: rgb(10, 46, 10);
+                overflow: hidden;
+            }
+
+            .loading-mid-bar {
+                width: 0;
+                height: 100%;
+                background-color: rgb(36, 192, 30);
+
+            }
+
+            .loading-mid-text {
+                color: white;
+                text-align: center;
+                font-size: 16px;
+                padding: 5px;
+            }
+
+            .loading-mid-container::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0);
+            }
+        </style>
+    </head>
+    <body>
+        <div style="margin-left: 7%; height: auto; margin-right: 7%; z-index: 100;  margin-top: 3%; padding-top: 1.5%; padding-left: 2%; padding-right: 2%; margin-bottom: 1%; padding-bottom: 10%; background: linear-gradient(to right, rgb(230, 214, 190), antiquewhite); border-radius: 3%;">
+            <h2>Hakemuksia täytetään automaattisesti</h2>
+            <h3 style="color: #7e706b;">Odota sulkematta sivua. <br>Sinut uudelleenohjataan automaattisesti valmistumissivulle, kun olet valmis! <br><br>(Arvioitu aika noin <span id="estimatedTime"></span> sekuntia riippuen internet-yhteydestä)</h3>
+            <div class="loading-container">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+            <div class="loading-mid-container">
+                <div class="loading-mid-bar" id="loadingMidBar"></div>
+            </div>
+            <div class="loading-sdh-container">
+                <div class="loading-sdh-bar" id="loadingShdBar"></div>
+            </div>
+        </div> 
+
+            <p class="loading-text"></p> <!--Loading...-->
+        <!--<script>
+            var quelenght = '{{ quelenght }}';
+            //console.log('quelenght'+quelenght)
+            var language = '{{ language }}';
+            var completion = '{{ completion }}';
+            var doeshehaveaccount = '{{ doeshehaveaccount }}';
+
+
+
+        </script>-->
+        <script>
+            var quelength = '{{ quelength }}';
+            var language = '{{ language }}';
+            var completion = '{{ completion }}';
+            var doeshehaveaccount = '{{ doeshehaveaccount }}';
+            var loadingBar = document.getElementById("loadingBar");
+            var loadingMidBar = document.getElementById("loadingMidBar");
+            var loadingShdBar = document.getElementById("loadingShdBar");
+
+            document.addEventListener("DOMContentLoaded", function () {
+                var loadingBar = document.getElementById("loadingBar");
+                var loadingMidBar = document.getElementById("loadingMidBar");
+                var loadingShdBar = document.getElementById("loadingShdBar");
+                var estimatedTimeElement = document.getElementById("estimatedTime");
+
+                /*if(quelength==='{{ quelength }}'){
+                    quelength=4.6;
+                }*/
+                // Set the estimated time text
+                estimatedTimeElement.textContent = quelength * 30;
+
+                // Set the loading bar durations based on quelength
+                var animationDuration = `${quelength * 30}s`;
+
+                // Set the initial width of loading bars to 0
+                loadingBar.style.transition = "width 0s linear";
+                loadingMidBar.style.transition = "width 0s linear";
+                loadingShdBar.style.transition = "width 0s linear";
+
+                loadingBar.style.width = "0";
+                loadingMidBar.style.width = "0";
+                loadingShdBar.style.width = "0";
+                // Start the loading animation after a short delay
+                setTimeout(function () {
+                    startLoadingAnimation();
+                }, 100);
+            });
+
+            // Function to start the loading animation
+            function startLoadingAnimation() {
+                var loadingBar = document.getElementById("loadingBar");
+                var loadingMidBar = document.getElementById("loadingMidBar");
+                var loadingShdBar = document.getElementById("loadingShdBar");
+                var loadingContainer = document.querySelector('.loading-container');
+                var loadingMidContainer = document.querySelector('.loading-mid-container');
+                var loadingShdContainer = document.querySelector('.loading-sdh-container');
+
+                var animationDuration = `${quelength * 30}s`;
+                /*if(quelength==='{{ quelength }}'){
+                    quelength=4.6;
+                }*/
+                console.log(quelength)
+                // Set the initial width of loading bars to 0
+                document.getElementById("loadingBar").style.transition = `width ${quelength * 30}s linear`;
+                document.getElementById("loadingMidBar").style.transition = `width ${quelength * 30}s linear`;
+                document.getElementById("loadingShdBar").style.transition = `width ${quelength * 30}s linear`;
+
+                document.getElementById("loadingBar").style.width = "100%";
+                document.getElementById("loadingMidBar").style.width = "100%";
+                document.getElementById("loadingShdBar").style.width = "100%";
+
+            // Redirect to response_template after the animation duration
+            setTimeout(function () {
+                window.location.href = '/response_templatedeque?quelength=' + quelength + '&language=' + language + '&completion=' + completion + '&doeshehaveaccount=' + doeshehaveaccount;
+            }, quelength * 30000); // Convert seconds to milliseconds
+        }
+        </script>
+        <script>
+            // Define your variables
+            //var quelength = '{{ quelength }}';
+            //var language = '{{ language }}';
+            //var completion = '{{ completion }}';
+            //var doeshehaveaccount = '{{ doeshehaveaccount }}';
+            /*print(quelength,language,completion,doeshehaveaccount)*/
+            // Optionally, you can perform animations or other actions before redirecting
+            // ...
+        
+            // Use setTimeout to redirect after the animation duration
+            /*setTimeout(function () {
+                window.location.href = '/response_template?' +
+                                    'quelength=' + encodeURIComponent(quelength) +
+                                    '&language=' + encodeURIComponent(language) +
+                                    '&completion=' + encodeURIComponent(completion) +
+                                    '&doeshehaveaccount=' + encodeURIComponent(doeshehaveaccount);
+            }, quelength * 10000); // Convert seconds to milliseconds*/
+        </script>
+    </body>
+    </html>
+
+

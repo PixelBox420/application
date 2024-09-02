@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Submitted</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(45deg, #3498db, #27ae60);
+            color: #fff;
+            /*text-overflow: ellipsis!important;*/
+        }
+
+        input,
+    textarea {
+        padding: 7px!important;
+        border-radius: 15px!important;
+        border: 1px solid #ccc;
+        /*margin-bottom: 10px;*/
+        width: 10%;
+    }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p {
+            color: #a7a7a7;
+            line-height: 1.5;
+        }
+
+        img {
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            height: 30px;
+            margin: 5px;
+            background-color: #4b6cff;
+            color: #3498db;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: hsl(241, 100%, 79%);
+            color: #fff;
+        }
+
+        .copy-message {
+            position: relative;
+            top: -5px;
+            color: #27ae60;
+        }
+
+        .content-container {
+            margin: 20px;
+        }
+
+        .copy-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+
+
+
+
+        #logindiv-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto; /* Adjust as needed */
+        }
+
+        #logindiv {
+            width: 300px; /* Adjust width as  needed */
+            padding: 20px;
+            border-radius: 25px;
+            background-color: #ccc;
+        }
+
+        #logindiv input,
+        #logindiv button {
+            margin: 5px 0;
+        }
+        /* Add more styles as needed */
+    </style>
+    <style>
+        .neon-bar {
+            position: inherit;
+            top: -280px;
+            margin-bottom: -100px;
+            z-index: 100!important;
+            width: 180%;
+            margin-left: -40%;
+            height: 20px;
+            background: linear-gradient(to bottom, rgba(0, 149, 255, 0.575), rgba(98, 129, 255, 0.705));
+            border-radius: 10px;
+            box-shadow: 0 0 20px 10px rgba(0, 149, 255, 0.767);
+        }   
+
+        .backround-bar {
+            position: absolute;
+            bottom: 107px;
+            margin-bottom: -200px;
+            z-index: 0!important;
+            width: 60%;
+            margin-left: auto;
+            /*padding-top: -20px;*/
+            margin-right: auto;
+            height: 205px;
+            background: linear-gradient(to bottom, #92ff8893, rgba(183, 255, 124, 0.705));
+            border-radius: 10px;
+            box-shadow: 0 0 20px 10px rgba(186, 255, 158, 0.767);
+        }   
+    </style>
+    <style>
+.menu-links {
+            align-self: center;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            z-index: 9999;
+            position: absolute;
+            width: 100%; /* Center the links across the page */
+            margin-left: -46px;
+        }
+    </style>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background: linear-gradient(45deg, #3498db, #27ae60);
+        color: #fff;
+    }
+
+    .center-div {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px; /* Adjust the top margin as needed */
+    }
+
+    .attention-button {
+        position: fixed;
+        bottom: 20px; /* Adjust the distance from the bottom */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 50px; /* Make it a perfect circle */
+        background-color: #4b6cff; /*#2b52ff*/
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 99999999; /* Set the z-index to 99999999 */
+    }
+
+    .attention-button:hover {
+        background-color: hsl(241, 100%, 79%);
+        color: #fff;
+    }
+
+    /* Triangle */
+    .attention-button:after {
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        margin-left: -15px; /* Adjust the triangle position */
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent; /* Adjust the triangle size */
+        border-right: 15px solid transparent; /* Adjust the triangle size */
+        border-top: 15px solid #4b6cff; /* Match the button background color */ /*#2b52ff*/
+            
+    }
+    /* Triangle */
+    .attention-button.clicked:after {
+        content: '';
+        position: absolute;
+        top: 20%!important;
+        z-index: -10;
+        left: 50%;
+        margin-left: -15px; /* Adjust the triangle position */
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent; /* Adjust the triangle size */
+        border-right: 15px solid transparent; /* Adjust the triangle size */
+        border-top: 15px solid #4b6cff; /* Match the button background color */ /*#2b52ff*/
+        visibility:hidden;
+    }
+    /* Triangle pointing down */
+    /*.attention-button:before {
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        margin-left: -15px; /* Adjust the triangle position */
+        /*width: 0;
+        height: 0;
+        border-left: 15px solid transparent; /* Adjust the triangle size */
+        /*border-right: 15px solid transparent; /* Adjust the triangle size */
+        /*border-top: 15px solid orange; /* Match the button background color */
+        /*transition: border-top-color 0s; /* Set transition property with 0s delay for immediate change */
+    /*
+    }*/
+    .attention-button:before {
+        color: #4b6cff;
+    }
+    /* Triangle pointing up */
+    .attention-button.clicked:before {
+        content: '';
+        position: absolute;
+        top: -21%; /* Change the top position to move the triangle upwards */
+        z-index: -10;
+        left: 50%;
+        margin-left: -15px; /* Adjust the triangle position */
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent; /* Adjust the triangle size */
+        border-right: 15px solid transparent; /* Adjust the triangle size */
+        border-bottom: 15px solid orange; /* Match the button background color */
+        
+    }
+    /* Add a new rule for triangle hover state */
+    .attention-button:hover:after {
+        border-top-color: hsl(241, 100%, 79%);
+    }
+</style>
+<style>
+    /* ... existing styles ... */
+
+    .attention-button {
+        /* ... existing styles ... */
+        transition: background-color 1.5s ease, color 1.5s linear; /* Add transition property for background-color and color */
+    }
+
+    .attention-button.clicked {
+        background-color: orange;
+        color: orange; /* Set the color to orange when clicked */
+                transition: background-color 1.5s ease, color 1.5s linear; /* Add transition property for background-color and color */
+
+    }
+
+    .attention-button.clicked:hover {
+        background-color: orange;
+    }
+
+    /* Triangle */
+    .attention-button:after {
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        margin-left: -15px; /* Adjust the triangle position */
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent; /* Adjust the triangle size */
+        border-right: 15px solid transparent; /* Adjust the triangle size */
+        border-top: 15px solid #4b6cff; /* Match the button background color */
+        transition: border-top-color 0s; /* Set transition property with 0s delay for immediate change */
+    }
+
+    .attention-button:hover:after {
+        border-top-color: hsl(241, 100%, 79%);
+    }
+
+    /*.attention-button.clicked:after {
+        border-top-color: orange;
+    }*/
+    
+</style>
+</head>
+<body>
+    <button class="attention-button" onclick="scrollToBottom()">Ai?</button>
+    <script>
+        /*function scrollToBottom() {
+            window.scrollTo(0, document.body.scrollHeight);
+        }*/
+    </script>
+    <script>
+        let isClicked = false;
+    
+        function scrollToBottom() {
+            if (!isClicked) {
+                document.querySelector('.attention-button').classList.add('clicked');
+                isClicked = true;
+                changeTextColorRandomly();
+
+            }
+            window.scrollTo(0, document.body.scrollHeight - 432);
+        }
+    </script>
+    <script>
+        function changeTextColorRandomly() {
+            const button = document.querySelector('.attention-button');
+            let isHovered = false;
+    
+            button.addEventListener('mouseenter', () => {
+                isHovered = true;
+                button.style.transition = 'none';
+            });
+    
+            button.addEventListener('mouseleave', () => {
+                isHovered = false;
+                button.style.transition = 'color 1.5s ease'; // Set the transition back when leaving hover
+            });
+    
+            setInterval(() => {
+                const randomDuration = Math.random() * 400 + 80; // Random duration between 100ms and 1100ms
+                const randomColor = getRandomColor();
+    
+                if (!isHovered) {
+                    button.style.color = randomColor;
+                }
+            }, 100); // Change color every 5 seconds
+        }
+    
+        function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }    
+        // Initial call to start the color changing process
+        //changeTextColorRandomly();
+    
+
+
+
+
+
+
+function trychangeTextColorRandomly() {
+    const button = document.querySelector('.attention-button');
+    let isHovered = false;
+
+    button.addEventListener('mouseenter', () => {
+        isHovered = true;
+        button.style.transition = 'none';
+    });
+
+    button.addEventListener('mouseleave', () => {
+        isHovered = false;
+    });
+
+    setInterval(() => {
+        const randomColor = trygetRandomColor();
+        const randomDuration = Math.floor(Math.random() * (340 - 100 + 1)) + 100;
+        
+        if (!isHovered) {
+            button.style.transition = `color ${randomDuration / 1000}s ease`;
+            button.style.color = randomColor;
+        }
+    }, 100); // Change color every 100ms
+}
+
+
+function trygetRandomColor() {
+    const startColor = '#4b6cff';
+    const endColor = '#ffffff';
+
+    const startRGB = hexToRgb(startColor);
+    const endRGB = hexToRgb(endColor);
+
+    const r = Math.floor(startRGB.r + Math.random() * (endRGB.r - startRGB.r + 1));
+    const g = Math.floor(startRGB.g + Math.random() * (endRGB.g - startRGB.g + 1));
+    const b = Math.floor(startRGB.b + Math.random() * (endRGB.b - startRGB.b + 1));
+
+    return rgbToHex(r, g, b);
+}
+
+function hexToRgb(hex) {
+    const bigint = parseInt(hex.slice(1), 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return { r, g, b };
+}
+
+function rgbToHex(r, g, b) {
+    return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+// Rest of the code remains unchanged
+
+// Call the function on page load
+window.onload = trychangeTextColorRandomly;
+    </script>
+    <div class="content-container">
+        <div style="padding-bottom: -100%; height: max-content; margin-left: 7%; margin-right: 7%; margin-top: 3%; border-radius: 3%; margin-bottom: 100px; background-color: rgb(153, 131, 102);">
+
+        <div style=" z-index: 100;  margin-top: 3%; padding-top: 1.5%; padding-left: 2%; padding-right: 2%; margin-bottom: 1%; padding-bottom: 10%; background: linear-gradient(to right, rgb(230, 214, 190), antiquewhite); border-radius: 3%;">
+            <h2 style="display: block;" id="pageTitle"><b>Donate</b></h2>
+            <p style="color: #555555; display: none;" id="pageContent"><b>Both Hoas & Ayy applications submitted! <br>(You should get confirmation messages from both hoas and ayy after couple minutes. <br>Please verify your new ayy domo email from the link as soon as the email arrives.)</b></p>
+            <p id="pageContenttwo"><b style="color: #a8a8a8;"><br>If you found the tool useful, please consider donating Eth or BTC to keep our servers up, but don't feel obligated. :)</b></p>
+
+            <div class="clear">
+                <!-- Display the first image -->
+                <img width="180px" src="{{ url_for('static', filename='trybtc.jpg') }}"  alt="">
+
+                <!-- Display the second image -->
+                <img width="180px" src="{{ url_for('static', filename='tryeth.jpg') }}"  alt="">
+            </div>
+            <style>
+                .address-container {
+                    overflow: hidden!important;
+                    white-space: nowrap!important;
+                    text-overflow: ellipsis!important;
+                    width: 100%!important;
+                }
+            </style>
+            
+            <div>
+                <p id="btcLabel"><b>BTC:</b></p>
+                <div class="address-container">
+                    <p id="btcAddress"><b>bc1q3x2qtu4lvje926y5wya719ncrc3kz089h6svly</b></p>
+                </div>                
+                <div class="copy-container">
+                    <button style="height: 39px; border-radius: 11px; color: #fff;" id="btcButton" onclick="copyToClipboard('btcAddress', 'btcButton', 'btcCopyMessage', 'ethButton', 'ethCopyMessage')"><b id="btcButtonText">Copy BTC Address</b></button>
+                    <p style="top: 2px;" class="copy-message" id="btcCopyMessage"></p>
+                </div>
+                
+                <p class="clear" id="ethLabel"><b>ETH:</b></p>    
+                <div class="address-container">
+                    <p id="ethAddress"><b>0x8477b6869da3fE5c6308Da93B5ea2EFE7e6a7230</b></p>
+                </div>                
+                <div class="copy-container">
+                    <button style="height: 39px; border-radius: 11px; color: #fff;" id="ethButton" onclick="copyToClipboard('ethAddress', 'ethButton', 'ethCopyMessage', 'btcButton', 'btcCopyMessage')"><b id="ethButtonText">Copy ETH Address</b></button>
+                    <p style="top: 2px;" class="copy-message" id="ethCopyMessage"></p>
+                </div> 
+            </div>
+         
+            </div>
+            <div style="background-color: #333; width: 80%; margin-top: 10%; padding-bottom: 50px; margin-left: 10%; height: 120px; border-radius: 26px; padding-bottom: -10%;">
+                <!--<a href="https://box420.gitlab.io/pixelbox420/">Check out all my free android apps here!</a>-->
+                <img height="80%" style="border-radius: 25px;" src="{{ url_for('static', filename='Worst_social_media_graphic_design_meme.jpg') }}" alt="( )">
+                <a href="https://box420.gitlab.io/pixelbox420/" style="display: block; min-width:113px; margin-top: -7px; margin-bottom: -100%; background-color: #b4b4b4; padding: 5px; border-radius: 10px; margin-left: 20%; width: 60%; text-decoration: none; color: #fff;">
+                    <b>Check out my free <br>android apps</b>
+                </a>            </div>
+                <a href="https://www.standarddronedefense.com" style="z-index:-1!important;"><img style="margin-left:1%; width:80%; min-width:220px; max-width:550px;border-radius: 15px;" src="/static/linkimg.png" alt="link"></a>
+
+            <p id="pagetryAi" style="margin-left: 5%; margin-right: 5%;"><b style="color: #ccc;"><br>Here you can sign up for an account for our upcoming revolutionary Ai tool for free for now, the first 500 to sign up get free lifetime membership, so be quick! - a whole new approach to practical useful ai for normal people. </b></p>
+
+            <div id="logindiv-container">
+
+        <div style="z-index: 2; clear: both; display:block;     position: relative; justify-content: center; align-items: center; top: 65px; padding: 15px; padding-top: 30px; max-height: 105px; max-width: 160px; border-radius: 25px; background-color: #ccc;" id="logindiv">
+                <div style="clear: both; border-radius: 15px; margin-bottom: -30px; position: relative; top: -47px; margin-left: -20%; background-color: #d3d3d3; height: 21px; width: 140%; display:block;"></div>
+            <form id="signup-form" method="POST" action="{{ url_for('signup') }}">
+
+                <input name="emailx" placeholder="Email:" style="position: relative; top: -5px; z-index: 100!important; margin-left: -4px; width: 150px;" type="email">
+                <input name="passwordx" type="password" placeholder="Password:" style="position: relative; top: -5px; margin-left: -4px; margin-top: 4px;  width: 150px;">
+
+<button type="submit" style="position: relative; top: -5px; margin-left: 5px; margin-top:6px; background: linear-gradient(to right, #4CAF50, #45a049);
+                border: none;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                padding: 5px 20px;
+                font-weight: bold; padding-bottom: 29px!important;">
+        Sign Up
+        </button>
+
+        <button style="display:none; position:relative; left:19px; top: 5px; background: linear-gradient(to right, #29442a00, #063b8100);
+        border: none;   
+        color: #4CAF50;
+        text-align: center;
+        text-decoration: none;
+        /*display: inline-block;*/
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-weight: bold;">
+        Log in
+        <label for="tryquelengthxxx">a</label>
+        <input style="display: none;" id="tryquelengthxxx" name="tryquelengthxxx">
+        <label for="trylanguagexxx">a</label>
+        <input style="display: none;" id="trylanguagexxx" name="trylanguagexxx">
+        <label for="trydoeshehaveaccountxxx">a</label>
+        <input style="display: none;" id="trydoeshehaveaccountxxx" name="trydoeshehaveaccountxxx">
+        <label for="trycompletionxxx">a</label>
+        <input style="display: none;" id="trycompletionxxx" name="trycompletionxxx">
+        <!--var quelength = '{{ quelenght }}';
+        /*console.log('quelength'+quelength)*/
+        var language = '{{ language }}';
+        doeshehaveaccount = '{{ doeshehaveaccount }}';-->
+        </button>
+    </form>
+        <img style="z-index: 123!important; pointer-events: none; z-index: 0; position:relative; left:-79px; top: -218px; " width="300px" src="{{ url_for('static', filename='mehchat.png') }}"  alt="MEHCHAT">
+        <div class="neon-bar"></div>
+        
+    </div>
+
+            <!--<div style="margin-left: 80%;">
+            <img width="50px" style="position: absolute; top: 21px; right: 189px;" src="{{ url_for('static', filename='finflag.png') }}"  alt="Fin">
+            <img width="50px" style="position: absolute; top: 21px; right: 70px;" src="{{ url_for('static', filename='enusflag.png') }}" alt="En">
+            <p style="position: absolute; right: 140px; top: 0px;">Kieli</p>
+            </div>
+            <img id="langring1" width="50px" style="position: absolute; top: 21px; right: 189px;" src="{{ url_for('static', filename='trytoring.png') }}" alt="En">
+            <img id="langring2" width="50px" style="display:none; position: absolute; top: 21px; right: 70px;" src="{{ url_for('static', filename='trytoring.png') }}" alt="En">
+            <div style="padding-top: 100px; padding-left: 40%;">
+            <img style="z-index: -1;position: absolute; top:0%; left:0%; min-height: 100px; max-height: 100px;" width="69%" src="{{ url_for('static', filename='trybanner.png') }}" alt=" ">
+            </div>
+        </div>
+
+        <div> 
+    </div>-->
+
+
+    
+</div>
+<div style="position: relative;" class="backround-bar">
+
+</div>
+<style>
+    .body-container {
+          height: 1000px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+        }
+    
+        .unique-outer-container {
+          width: 60%;
+          height: 35%;
+          background-color: #d2b48c; /* Light brown color */
+          border-radius: 25px;
+          position: fixed;
+          top: 21%;
+          overflow: hidden;
+          padding: 20px;
+          margin-left: 79%!important;
+        }
+    
+        .unique-inner-container {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: linear-gradient(to right, #fff, #e7e7e7); /* White gradient from left to right */
+          border-radius: 25px;
+          text-align: center;
+          width: 97%;
+          height: 100%;
+        }
+    
+        .unique-h1, .unique-h4, .unique-p {
+          margin: 0;
+        }
+    
+        .unique-button {
+          position: absolute;
+          bottom: 20px;
+          padding: 10px 20px;
+          border-radius: 5px;
+          background-color: green;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          width: 30%;
+          margin-left: 30%;
+        }
+      </style>
+    <div style="display: none; position: fixed!important; z-index: 9999999999999!important;" id="mailsentnf" class="outer-container">
+        <div class="body-container">
+            <div class="unique-outer-container">
+            <div class="unique-inner-container">
+                <h1 id="trynotifen1" style="color: black; display: none;" class="unique-h1"><br>Account Created!</h1>
+                <h5 id="trynotifen2" style="color: black; display: none;" class="unique-h4">Message sent to mailbox!</h5><!--Message sent to mailbox!--> 
+                <h1 id="trynotiffi1" style="color: black; display: none;" class="unique-h1"><br>Tili luotu!</h1>
+                <h5 id="trynotiffi2" style="color: black; display: none;" class="unique-h4">Viesti lähetetty shköpostiin!</h5><!--Viesti lähetetty shköpostiin!--> 
+                <img id="tryimgnotif1" style="margin-left: 190px;" width="50px" src="{{ url_for('static', filename='tryaccept.png') }}" alt="Success!">
+                <img id="tryimgnotif2" style="margin-top:-28px!important; margin-left: 10px; margin-top: -50px;" width="120px" src="{{ url_for('static', filename='trymail.png') }}" alt="Success!">
+                <div class="unique-button" onclick="document.getElementById('mailsentnf').style.display='none'" type="button">Great!</div>
+            </div>
+            </div>
+        </div>
+      </div>
+<div style="display: none; z-index: 9999999999999; margin-left: 40%;" id="mailsentnf" class="outer-container">
+    <div class="body-container">
+        <div class="unique-outer-container">
+        <div class="unique-inner-container">
+            <h1 class="unique-h1"><br>Account Created!</h1>
+            <h4 class="unique-h4">Message sent to mailbox!</h4>
+            <img style="margin-left: 190px;" width="50px" src="{{ url_for('static', filename='tryaccept.png') }}" alt="Success!">
+            <img style="margin-left: 10px; margin-top: -50px;" width="120px" src="{{ url_for('static', filename='trymail.png') }}" alt="Success!">
+            <div class="unique-button" onclick="document.getElementById('mailsentnf').style.display='none'">Great!</div>
+        </div>
+        </div>
+    </div>
+  </div>
+  <!--Weirdtwwobutiguestylingwrksfrnw-->
+    <div style="height: 120px; width: 100%;"></div>
+    <!-- Other content... -->
+    <p class="menu-links">
+        <a href="#" id="languageSwitch" onclick="switchLanguage('{{ language }}');">English</a> &nbsp;&nbsp;
+        <a href="/another_page?section=about#about">about</a> &nbsp;&nbsp;
+        <a href="/another_page?section=contact#contact">contact</a> &nbsp;&nbsp;
+        <a href="/another_page?section=faq#faq">faq</a> &nbsp;&nbsp;
+        <a href="/another_page?section=terms#terms">terms</a> &nbsp;&nbsp;
+        <a href="/another_page?section=privacy#privacy">privacy</a>    
+        
+    </p>
+
+    <script>
+        function copyToClipboard(elementId, buttonId, copyMessageId, otherButtonId, otherCopyMessageId) {
+            const element = document.getElementById(elementId);
+            var languageSwitchElement = document.getElementById('languageSwitch');
+            var languageText = languageSwitchElement.innerText;
+
+            if (!element) {
+                console.error(`Element with ID ${elementId} not found.`);
+                return;
+            }
+
+            const textArea = document.createElement("textarea");
+            textArea.value = element.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            var language = languageText;
+            var doeshehaveaccount = '0';
+            var completion = '';
+            try{
+                var completion = '{{ completion }}';
+                var currentUrl = window.location.href;
+                // Use URLSearchParams to parse the query parameters    
+                var urlParams = new URLSearchParams(currentUrl.split('?')[1]);
+                completion = urlParams.get('completion');
+            }
+            catch(error){
+                console.log(error)
+            }
+            const button = document.getElementById(buttonId);
+            const btcButtonText = document.getElementById('btcButtonText');
+            const ethButtonText = document.getElementById('ethButtonText');
+
+            if (!button || !btcButtonText || !ethButtonText) {
+                console.error(`Button with ID ${buttonId} not found.`);
+                return;
+            }
+
+            button.style.backgroundColor = '#27ae60'; // Green color
+
+            const copyMessage = document.getElementById(copyMessageId);
+
+            if (!copyMessage) {
+                console.error(`Copy message with ID ${copyMessageId} not found.`);
+                return;
+            }
+            if (language == 'English'){
+                copyMessage.textContent = `${elementId === 'btcAddress' ? 'BTC' : 'ETH'} Address copied to clipboard!`;
+            }
+            else{
+                copyMessage.textContent = `${elementId === 'btcAddress' ? 'BTC' : 'ETH'} Osoite kopioitu leikepöydälle!`;
+            }
+
+            // Reset the other button and copy message
+            const otherButton = document.getElementById(otherButtonId);
+            const otherCopyMessage = document.getElementById(otherCopyMessageId);
+
+            if (otherButton && otherCopyMessage) {
+                otherButton.style.backgroundColor = ''; // Reset background color
+                otherCopyMessage.textContent = ''; // Clear copy message
+            }
+        }
+        function switchLanguage() {
+
+            language = document.getElementById("languageSwitch").innerText;
+            const pageTitle = document.getElementById('pageTitle');
+            const pageContent = document.getElementById('pageContent');
+            const pageContenttwo = document.getElementById('pageContenttwo');
+            const btcLabel = document.getElementById('btcLabel');
+            const ethLabel = document.getElementById('ethLabel');
+            const btcButtonText = document.getElementById('btcButtonText');
+            const ethButtonText = document.getElementById('ethButtonText');
+            var languageSwitchElement = document.getElementById('languageSwitch');
+            var tryAiToolTxt = document.getElementById('pagetryAi');
+
+            var languageText = languageSwitchElement.textContent;
+            try{
+                var completion = '{{ completion }}';
+                var currentUrl = window.location.href;
+                // Use URLSearchParams to parse the query parameters
+                var urlParams = new URLSearchParams(currentUrl.split('?')[1]);
+                completion = urlParams.get('completion');
+            }
+            catch(error){
+                console.log(error)
+            }
+
+            if (language == 'English') {
+                if(completion == 'yes' || completion == '1'){
+                    pageTitle.innerText = 'Hakemus lähetetty';
+                    if(doeshehaveaccount == '0'){
+                        pageContent.innerHTML = '<b  style="color: #555555;"><b>Sekä Hoas- että Ayy-hakemukset lähetetty! <br>(Molemmilta pitäisi tulla vahvistusviestit sähköpostiisi muutaman minuutin kuluttua. <br>Vahvista uusi ayy domo -sähköpostisi linkistä heti, kun sähköposti saapuu.)</b>';
+                    }
+                    else{
+                        pageContent.innerHTML = '<b>Sekä Hoas- että Ayy-hakemukset lähetetty! <br>(Molemmilta pitäisi tulla vahvistusviestit sähköpostiisi muutaman minuutin päästä.)</b>';
+                    }
+                }
+                else{
+                    pageTitle.innerText = 'Lahjoita';
+                    document.getElementById("pageContent").style.display = "none";
+                }
+                pageContenttwo.innerHTML = '<b style="color: #a8a8a8;"><br>Jos koet työkalun hyödylliseksi, harkitse Eth- tai BTC-lahjoitusta pitääksemme serverimme toiminnassa, mutta ei vaadittu. :)</b>';
+                //btcLabel.innerText = 'BTC:';
+                //ethLabel.innerText = 'ETH:';
+                btcButtonText.innerText = 'Kopioi Bitcoin-osoite';
+                ethButtonText.innerText = 'Kopioi ETH-osoite';
+                languageSwitchElement.innerText = 'Finnish';
+                tryAiToolTxt.innerHTML = '<b style="color: #ccc;"><br>Täällä voit rekisteröityä tilille tulevaan vallankumoukselliseen tekoälytyökaluumme ilmaiseksi nyt, ensimmäiset 500 rekisteröitynyttä saavat elinikäisen ilmaisen Premium jäsenyyden, joten ole nopea! - aivan uusi idea käytännölliseen hyödylliseen tekoälyyn tavallisille ihmisille.</b>';
+            } else {
+                if(completion == 'yes'){
+                        pageTitle.innerText = 'Application Submitted';
+                    if(doeshehaveaccount == '0'){
+                        pageContent.innerHTML = '<b>Both Hoas & Ayy applications submitted! <br>(You should get confirmation emails from both hoas and ayy after a couple minutes. <br>Please verify your new ayy domo email from the link as soon as the email arrives.)</b>';
+                    }
+                    else{
+                        pageContent.innerHTML = '<b>Both Hoas & Ayy applications submitted! <br>(You should get confirmation email from both hoas and ayy after a couple minutes.) </b>';
+                    }    
+                }
+                else{
+                    pageTitle.innerText = 'Donate';
+                    document.getElementById("pageContent").style.display = "none";
+                }
+                pageContenttwo.innerHTML = '<b><br>If you found the tool useful, please consider donating Eth or BTC to keep our servers up, but don\'t feel obligated. :)</b>';
+                //btcLabel.innerText = 'BTC:';
+                //ethLabel.innerText = 'ETH:';
+                btcButtonText.innerText = 'Copy BTC Address';
+                ethButtonText.innerText = 'Copy ETH Address';
+                languageSwitchElement.innerText = 'English';
+                tryAiToolTxt.innerHTML = '<b style="color: #ccc;"><br>Here you can sign up for an account for our upcoming revolutionary Ai tool for free for now, the first 500 to sign up get free lifetime Premium membership, so be quick! - a whole new approach to practical useful ai for normal people. </b>'
+            }
+
+            var currentUrl = window.location.href;
+            // Use URLSearchParams to parse the query parameters
+            var urlParams = new URLSearchParams(currentUrl.split('?')[1]);
+            // Get the values of specific parameters
+            var quelength = urlParams.get('quelength');
+            var language = urlParams.get('language');
+            var completion = urlParams.get('completion');
+            var doeshehaveaccount = urlParams.get('doeshehaveaccount');
+                var tryquelengthxxxElement = document.getElementById("tryquelengthxxx");
+                var trylanguagexxxElement = document.getElementById("trylanguagexxx");
+                var trydoeshehaveaccountxxxElement = document.getElementById("trydoeshehaveaccountxxx");
+                var trycompletionxxxElement = document.getElementById("trycompletionxxx");
+
+            if(languageSwitchElement.innerText == 'Finnish'){
+                // Set values for each element
+                tryquelengthxxxElement.value = '1';
+                trylanguagexxxElement.value = '0';
+                if(doeshehaveaccount.length>1){
+                trydoeshehaveaccountxxxElement.value = doeshehaveaccount.substring(0,doeshehaveaccount.length-1);
+                }                
+                trycompletionxxxElement.value = '1';
+            }
+            else{
+                tryquelengthxxxElement.value = '1';
+                trylanguagexxxElement.value = '2';
+                if(doeshehaveaccount.length>1){
+                trydoeshehaveaccountxxxElement.value = doeshehaveaccount.substring(0,doeshehaveaccount.length-1);
+                }
+                trycompletionxxxElement.value = '1';
+            }
+            if(trylanguagexxxElement.value == '2'){
+                if(doeshehaveaccount == '0'){
+                        pageContent.innerHTML = '<b>Both Hoas & Ayy applications submitted! <br>(You should get confirmation messages from both hoas and ayy after couple minutes. <br>Please verify your new ayy domo email from the link as soon as the email arrives.)</b>';
+                    }
+            }
+            else{
+                if(doeshehaveaccount == '0'){
+                        pageContent.innerHTML = '<b>Sekä Hoas- että Ayy-hakemukset lähetetty! <br>(Molemmilta pitäisi tulla vahvistusviestit sähköpostiisi muutaman minuutin päästä.</b>)';
+                    }
+            }
+            console.log(tryquelengthxxxElement.value+" "+trylanguagexxxElement.value+" "+trydoeshehaveaccountxxxElement.value+" "+trycompletionxxxElement.value)
+        
+        
+        }
+    </script>
+    <script>
+        try{
+        var language = '{{ language }}';
+        // Get the current URL
+        var currentUrl = window.location.href;
+        // Use URLSearchParams to parse the query parameters
+        var urlParams = new URLSearchParams(currentUrl.split('?')[1]);
+        var language = urlParams.get('language');
+
+        }
+        catch(error){
+            console.log(error)
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+         // Get the language information from the template
+        try{
+        var quelength = '{{ quelength }}';
+        var language = '{{ language }}';
+        doeshehaveaccount = '{{ doeshehaveaccount }}';
+        // Get the current URL
+        var currentUrl = window.location.href;
+        // Use URLSearchParams to parse the query parameters
+        var urlParams = new URLSearchParams(currentUrl.split('?')[1]);
+        // Get the values of specific parameters
+        var quelength = urlParams.get('quelength');
+        var language = urlParams.get('language');
+        var completion = urlParams.get('completion');
+        var doeshehaveaccount = urlParams.get('doeshehaveaccount');
+        }
+        catch(error){
+            console.log(error)
+        }
+        console.log(quelength+language+doeshehaveaccount)
+        var serverresponse=''
+        var truthstatement=''
+        trypro='{{trypro}}'
+        var currentUrl = window.location.href;
+        // Use URLSearchParams to parse the query parameters
+        var urlParams = new URLSearchParams(currentUrl.split('?')[1]);
+        // Get the values of specific parameters
+        var tryprox = urlParams.get('trypro');
+        console.log(tryprox)
+        //alert(language,doeshehaveaccount)
+        //completion = '{{ completion }}';
+        /*alert(language)*/
+        //alert(completion);
+        // try conditionally click the language switch link
+        if(trypro==='pro' || tryprox==='pro'){
+            //alert("lol")
+        // Scroll to the bottom of the page when it loads
+        window.onload = function() {
+            window.scrollTo(0, document.body.scrollHeight-432);
+        };
+        tryChanger();
+        
+            if(language=='2'|| language==='en'){
+            document.getElementById("trynotifen1").style.display="block";  
+            document.getElementById("trynotifen2").style.display="block";  
+            document.getElementById("mailsentnf").style.display="block";    
+            }
+            else{
+            document.getElementById("trynotiffi1").style.display="block";  
+            document.getElementById("trynotiffi2").style.display="block"; 
+            document.querySelector('.unique-button').innerText = "Let's Go!";
+            document.getElementById("mailsentnf").style.display="block";  
+            }
+        }
+        else if(trypro==='alrdextsr'|| tryprox==='alrdextsr'){
+            window.onload = function() {
+            window.scrollTo(0, document.body.scrollHeight-432);
+        };           
+            if(language=='2'|| language==='en'){
+            //alert("Username already exists please use another username. Also make sure password isn't easy to guess!") 
+            document.getElementById("trynotifen1").innerHTML= "<br>Account already exists";
+            document.getElementById("trynotifen2").innerHTML= "Username already exists please use another username. Also make sure password isn't easy to guess!";
+            document.getElementById("tryimgnotif1").style.display="none"; 
+            document.querySelector('.unique-button').innerText = "Understood";
+            document.getElementById("tryimgnotif2").style.display="none"; 
+            document.getElementById("trynotifen1").style.display="block";  
+            document.getElementById("trynotifen2").style.display="block";  
+            document.getElementById("mailsentnf").style.display="block";    
+        }
+            else{
+            //alert("Käyttäjänimi on jo olemassa käytä toista käyttäjänimeä. Huolehdi myös että salasana ei ole helppo arvata!") 
+            document.getElementById("trynotifen1").innerHTML= "<br>Käyttäjänimi on jo olemassa";
+            document.getElementById("trynotifen2").innerHTML= "Käyttäjänimi on jo olemassa käytä toista käyttäjänimeä. Huolehdi myös että salasana ei ole helppo arvata!";
+            document.getElementById("tryimgnotif1").style.display="none"; 
+            document.querySelector('.unique-button').innerText = "Selvä";
+            document.getElementById("tryimgnotif2").style.display="none"; 
+            document.getElementById("trynotifen1").style.display="block";  
+            document.getElementById("trynotifen2").style.display="block";  
+            document.getElementById("mailsentnf").style.display="block";    
+        }
+            //document.getElementById("mailsentn").style.display="block";   
+        }
+
+                if (language == '0' || language == 'fi') {
+                    // Assuming you have an element with ID 'languageSwitch', you can click it
+                    document.getElementById('languageSwitch').click();
+                }
+            const pageContent = document.getElementById('pageContent');
+            //let language = document.getElementById("languageSwitch").innerText; // might be unreliabl based on page redraw of element txt
+
+            if (doeshehaveaccount == '0' && (language == '0' || language == 'fi') ){ //n0 ///no acc language fi
+                //
+            } 
+            else if(doeshehaveaccount == '1' && (language == '0' || language == 'fi') ){ //y0 ///ye acc language fi
+                pageContent.innerHTML = '<b>Sekä Hoas- että Ayy-hakemukset lähetetty! <br>(Molemmilta pitäisi tulla vahvistusviestit sähköpostiisi muutaman minuutin päästä.)</b>';
+            }
+            else if (doeshehaveaccount == '0' && (language == '2' || language == 'en') ){ //n2 ///no acc language en
+                //
+            } 
+            else if(doeshehaveaccount == '1' && (language == '2' || language == 'en') ){ //y2 ///ye acc language en
+                pageContent.innerHTML = '<b>Both Hoas & Ayy applications submitted! <br>(You should get confirmation email from both hoas and ayy after a couple minutes.) </b>';
+            }
+
+        });
+        try {
+            var completion = '{{ completion }}';
+            }
+        catch(error){
+                console.log(error)
+            }
+        if(completion == 'yes'){
+            if(language == '0'){
+            document.getElementById("pageTitle").innerHTML = 'Hakemus lähetetty';
+            document.getElementById("pageContent").style.display = "block";
+            }
+            else{
+            document.getElementById("pageTitle").innerHTML = 'Application Submitted';
+            document.getElementById("pageContent").style.display = "block";
+            }
+        }
+        else{
+
+            //alert(language)
+            /*if(language == 'fi'){
+            document.getElementById("pageTitle").innerHTML = 'Donate';
+            document.getElementById("pageContent").style.display = "none";
+            }
+            else{
+            document.getElementById("pageTitle").innerHTML = 'Donate';
+            document.getElementById("pageContent").style.display = "none";
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                if (language == 'fi') {
+                    // Assuming you have an element with ID 'languageSwitch', you can click it
+                    document.getElementById('languageSwitch').click();
+                }});*/
+        }
+        // Call the function to update the text when the DOM is loaded
+    function tryChanger(){
+    //document.addEventListener('DOMContentLoaded', function () {
+        truthstatement = '{{withinfirst500}}'
+        truthstatement = 'withinfirst500';
+        try{
+            serverresponse = '{{userinfirst500}}'
+            /*flask hidden interface x5ZL1*/
+            //Nolongerneeded instead using hidden function call to server
+            /* if(('invertor')=>{
+                invertor.invertorResponder(includedin, firecall(1,245),ls);
+                mutable responder.setCall(1);
+            });*/
+            serverresponse = 'withinfirst500';
+            //alert("1")
+            if(language=='English' || language=='2' || language=="en"){
+                if(serverresponse==truthstatement){
+                    document.getElementById("trynotifen2").innerHTML='Congratulations! You are within the first 500 users and you now have free lifetime membership!! Stay tuned for release!'
+                }
+                else{
+                    document.getElementById("trynotifen2").innerHTML='Sorry not in first 500 users but you will get a one week free trial. Stay tuned for release.'
+
+                }
+            }
+            else{
+                if(serverresponse==truthstatement){
+                    //alert("2")
+                    document.getElementById("trynotiffi2").innerHTML='Onnea! Olet ensimmäisten 500 käyttäjän joukossa ja sinulla on nyt elinikäinen ilmainen käyttäjätili!! Julkaisua odottelemaan!'
+                }
+                else{
+                    document.getElementById("trynotiffi2").innerHTML='Sori et ollut ensimmäisten 500 käyttäjän joukossa mutta saat viikon ilmaisen kokeilun. Julkaisu tulossa.'
+
+                }
+            }
+        }
+        catch(error){
+            /* error logging goes from management console section to backend automatically*/
+        }
+        //updateNotificationText();
+    //});
+    }
+        //document.getElementById("")
+
+        var currentUrl = window.location.href;
+        // Use URLSearchParams to parse the query parameters
+        var urlParams = new URLSearchParams(currentUrl.split('?')[1]);
+        // Get the values of specific parameters
+        var quelength = urlParams.get('quelength');
+        var language = urlParams.get('language');
+        var completion = urlParams.get('completion');
+        var doeshehaveaccount = urlParams.get('doeshehaveaccount');
+      var tryquelengthxxxElement = document.getElementById("tryquelengthxxx");
+      var trylanguagexxxElement = document.getElementById("trylanguagexxx");
+      var trydoeshehaveaccountxxxElement = document.getElementById("trydoeshehaveaccountxxx");
+      var trycompletionxxxElement = document.getElementById("trycompletionxxx");
+
+      // Set values for each element
+      tryquelengthxxxElement.value = '1';
+      trylanguagexxxElement.value = language;
+      trydoeshehaveaccountxxxElement.value = doeshehaveaccount;
+      trycompletionxxxElement.value = '1';
+
+      
+    </script>
+</body>
+</html>
